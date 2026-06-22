@@ -1,0 +1,58 @@
+{
+  "name": "@tazama-lf/simulation-service",
+  "version": "0.0.0-rc.0",
+  "description": "Simulation services in support of the Tazama Rule Studio",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "start": "node -r dotenv/config build/index.js",
+    "clean": "npx rimraf build node_modules coverage package-lock.json",
+    "fix": "npm run fix:prettier && npm run fix:eslint",
+    "fix:eslint": "eslint --fix",
+    "fix:prettier": "prettier --write \"**/*.ts\"",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint",
+    "lint:eslint-unused": "eslint --report-unused-disable-directives",
+    "lint:eslint-no-inline": "eslint --no-inline-config",
+    "lint:prettier": "prettier --check \"**/*.ts\"",
+    "test": "jest --config=jest.config.ts --passWithNoTests --forceExit",
+    "test:watch": "jest --config=jest.config.ts --watch",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "tazama"
+  ],
+  "contributors": [],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "21.0.0",
+    "@commitlint/config-conventional": "21.0.0",
+    "@eslint-community/eslint-plugin-eslint-comments": "4.5.0",
+    "@stylistic/eslint-plugin": "^5.2.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0",
+    "eslint-config-love": "^121.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "jest": "^30.0.4",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}

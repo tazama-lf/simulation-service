@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: Apache-2.0
+
+version: "3.9"
+services:
+  simulation-service:
+    build:
+      context: .
+      secrets:
+        - GH_TOKEN
+    image: simulation-service
+    restart: "no"
+    env_file:
+      - .env
+    ports:
+      - "<port>:<port>"
+
+secrets:
+  GH_TOKEN:
+    environment: GH_TOKEN

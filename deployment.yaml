@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulation-service
+  namespace: processor
+  labels:
+    app: simulation-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simulation-service
+  template:
+    metadata:
+      name: simulation-service
+      labels:
+        app: simulation-service
+      annotations:
+        prometheus.io.scrape: 'false'
+    spec:
+      containers:
+        - name: simulation-service
+          image: <registry>/simulation-service:<tag>
+          ports:
+            - name: http
+              containerPort: <port>
+              protocol: TCP
+          resources: {}
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: frmpullsecret
+      schedulerName: default-scheduler
+      enableServiceLinks: false
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
