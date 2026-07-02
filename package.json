@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "21.0.0",
-    "@commitlint/config-conventional": "21.0.0",
+    "@commitlint/config-conventional": "21.0.2",
     "@eslint-community/eslint-plugin-eslint-comments": "4.5.0",
     "@stylistic/eslint-plugin": "^5.2.0",
     "@types/jest": "^30.0.0",
