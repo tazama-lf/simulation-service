@@ -1,6 +1,6 @@
 {
   "name": "@tazama-lf/simulation-service",
-  "version": "4.0.0-rc.0",
+  "version": "4.0.0",
   "description": "Simulation services in support of the Tazama Rule Studio",
   "main": "build/index.js",
   "types": "build/index.d.ts",
